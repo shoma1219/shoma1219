@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="draw app">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>shomaisshi</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            height: 100%;
+            left: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .linkContainer {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .linkContainer a {
+            padding: 32px 24px;
+            font-size: 32px;
+            /* background: cornflowerblue; */
+        }
+
+        .contentContainer img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .contentContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1 class="logo">shomaisshi</h1>
+        </header>
+
+        <div class="linkContainer">
+            <router-link to="/">Top</router-link>
+            <router-link to="/links">Links</router-link>
+            <router-link to="/about">About</router-link>
+        </div>
+
+        <div class="contentContainer">
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <!-- Vue.jsとVue Routerを読み込む -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.8.1/vue-router.js"></script>
+
+    <script>
+        // ルートオプションを渡してVue Routerを初期化
+        var router = new VueRouter({
+            // 各ルートにコンポーネントをマッピング
+            routes: [
+                {
+                    path: '/',
+                    component: {
+                        template: `
+            <div>
+                <img src="img01.png" alt="top image">
+            </div>
+          `
+                    }
+                },
+                {
+                    path: '/links',
+                    component: {
+                        template: `
+            <div>
+                <h1>works</h1>
+                <p>作ったものです。</p>
+            </div>
+          `,
+                    }
+                },
+                {
+                    path: '/about',
+                    component: {
+                        template: `
+            <div>
+                <h1>About</h1>
+                <p>一志匠馬 / デザイナー / Webエンジニア</p>
+                <p>ものづくりが好きです。</p>
+                <p><a href="https://twitter.com/shomaisshi">Twitter: @shomaisshi</a></p>
+            </div>
+          `,
+                    }
+                },
+
+            ]
+        })
+
+        // Vueの初期化
+        var app = new Vue({
+            router: router
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>
