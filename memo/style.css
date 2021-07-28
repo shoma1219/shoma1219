@@ -32,6 +32,7 @@ body {
     line-height: 1.6;
     padding: 24px;
     border: none;
+    outline: none;
 }
 
 .btnContainer {
