@@ -18,11 +18,15 @@ window.onload = function () {
     }
 }
 
+// LocalStorageに保存する
 window.addEventListener('click', () => {
     canvas = document.getElementById('defaultCanvas0');
     base64 = canvas.toDataURL();
-    console.log(base64);
+    window.localStorage.setItem("saveKey", base64);
+});
 
-    // LocalStorageに保存する
+window.addEventListener('touched', () => {
+    canvas = document.getElementById('defaultCanvas0');
+    base64 = canvas.toDataURL();
     window.localStorage.setItem("saveKey", base64);
 });
