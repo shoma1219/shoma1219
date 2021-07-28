@@ -25,7 +25,7 @@ window.addEventListener('click', () => {
     window.localStorage.setItem("saveKey", base64);
 });
 
-window.addEventListener('touched', () => {
+window.addEventListener('touchend', () => {
     canvas = document.getElementById('defaultCanvas0');
     base64 = canvas.toDataURL();
     window.localStorage.setItem("saveKey", base64);
