@@ -1,8 +1,21 @@
 let c;
+let backgroundColor;
+let lineColor;
+
+if (window.matchMedia('(prefers-color-scheme: dark)').matches == true) {
+    backgroundColor = 0;
+    lineColor = 255;
+    console.log('dark ok');
+} else {
+    backgroundColor = 255;
+    lineColor = 0;
+    console.log('white ok');
+}
 
 function setup() {
     c = createCanvas(windowWidth, windowHeight);
-    background(255);
+    background(backgroundColor);
+    stroke(lineColor);
 }
 
 function draw() {
@@ -16,5 +29,5 @@ function downloadImage() {
 }
 
 function clearRect() {
-    background(255);
+    background(backgroundColor);
 }

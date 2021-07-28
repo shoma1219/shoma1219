@@ -60,3 +60,13 @@ body {
 #saveBtn {
     background: lightgreen;
 }
+
+@media (prefers-color-scheme: dark) {
+    body,
+    #textareaData,
+    .btnContainer button,
+    #saveBtn {
+        background: #000;
+        color: #fff;
+    }
+}

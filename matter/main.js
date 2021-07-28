@@ -25,12 +25,14 @@ const render = Render.create({
 const boxA = Bodies.rectangle(400, 200, 80, 80);
 const boxB = Bodies.rectangle(450, 50, 80, 80);
 const circleA = Bodies.circle(430, 430, 40);
+const polygonA = Bodies.polygon(430, 430, 5, 40);
+const trapezoidA = Bodies.trapezoid(430, 430, 50, 50, 1);
 const wallA = Bodies.rectangle(0, height / 2, 20, height, { isStatic: true });
 const wallB = Bodies.rectangle(width, height / 2, 20, height, { isStatic: true });
 const ground = Bodies.rectangle(width / 2, height, width, 20, { isStatic: true });
 
 // add all of the bodies to the world
-Composite.add(engine.world, [boxA, boxB, circleA, wallA, wallB, ground]);
+Composite.add(engine.world, [boxA, boxB, circleA, polygonA, trapezoidA, wallA, wallB, ground]);
 
 // run the renderer
 Render.run(render);
