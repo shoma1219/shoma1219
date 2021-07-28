@@ -1,7 +1,7 @@
 'use strict';
 
 const textareaData = document.getElementById('textareaData');
-let myData;
+let myData = localStorage.getItem('data');
 textareaData.textContent = myData;
 
 window.addEventListener('keydown', () => {
