@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>memo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>memo</h1>
-    <textarea name="textarea" id="textareaData" cols="30" rows="10">aaa</textarea>
-    <button id="copyBtn">copy</button>
-    <button id="deleteBtn">delete</button>
+    <div class="container">
+        <textarea name="textarea" id="textareaData" cols="30" rows="10" placeholder="書いたメモは端末のストレージに保存されます。"></textarea>
+        <div>
+            <button id="copyBtn">copy</button>
+            <button id="deleteBtn">delete</button>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>
