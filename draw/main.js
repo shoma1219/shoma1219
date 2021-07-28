@@ -3,10 +3,11 @@
 // Canvasからbase64エンコーディングされた画像データを取得する
 let canvas;
 let base64;
+let ctx;
 
 window.addEventListener('load', function () {
     canvas = document.getElementById('defaultCanvas0');
-    const ctx = canvas.getContext('2d');
+    ctx = canvas.getContext('2d');
     const getBase64 = window.localStorage.getItem("saveKey");
 
     // Imageオブジェクトを作成し、src属性にデータを設定する
