@@ -4,8 +4,7 @@
 let canvas;
 let base64;
 
-window.onload = function () {
-    console.log('ok');
+window.addEventListener('load', function () {
     canvas = document.getElementById('defaultCanvas0');
     const ctx = canvas.getContext('2d');
     const getBase64 = window.localStorage.getItem("saveKey");
@@ -16,7 +15,7 @@ window.onload = function () {
     image.onload = function () {
         ctx.drawImage(image, 0, 0, windowWidth, windowHeight);
     }
-}
+});
 
 // LocalStorageに保存する
 window.addEventListener('click', () => {
