@@ -32,12 +32,13 @@ body {
 }
 
 .btnContainer button {
-    padding: 16px 24px;
+    padding: 8px 16px;
     font-size: 16px;
     background: #fff;
     border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
     transition: all .3s;
     cursor: pointer;
 }
