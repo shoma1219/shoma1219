@@ -1,6 +1,6 @@
 'use strict';
 
-// データの保存
+// データの復元
 const textareaData = document.getElementById('textareaData');
 let myData = localStorage.getItem('data');
 
@@ -9,6 +9,7 @@ textareaData.value = '';
 textareaData.focus();
 textareaData.value = myData;
 
+// データの保存
 window.addEventListener('keyup', () => {
     localStorage.setItem('data', textareaData.value);
 });
@@ -26,6 +27,7 @@ copyBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', () => {
     textareaData.value = '';
     localStorage.setItem('data', textareaData.value);
+    textareaData.focus();
 });
 
 saveBtn.addEventListener('click', () => {
