@@ -2,12 +2,12 @@ let c;
 
 function setup() {
     c = createCanvas(windowWidth, windowHeight);
-    background(200);
+    background(255);
 }
 
 function draw() {
     if (mouseIsPressed) {
-        ellipse(mouseX, mouseY, 40, 40);
+        line(pmouseX, pmouseY, mouseX, mouseY);
     }
 }
 
@@ -16,5 +16,5 @@ function downloadImage() {
 }
 
 function clearRect() {
-    background(200);
+    background(255);
 }
