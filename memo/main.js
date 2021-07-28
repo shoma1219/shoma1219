@@ -3,7 +3,11 @@
 // データの保存
 const textareaData = document.getElementById('textareaData');
 let myData = localStorage.getItem('data');
-textareaData.textContent = myData;
+
+// リロード時にテキストエリアにフォーカスする
+textareaData.value = '';
+textareaData.focus();
+textareaData.value = myData;
 
 window.addEventListener('keyup', () => {
     localStorage.setItem('data', textareaData.value);
