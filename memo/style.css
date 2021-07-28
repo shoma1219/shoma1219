@@ -1,14 +1,17 @@
+html,
 body {
     margin: 0;
+    height: 100%;
 }
 
 .container {
     /* background: dodgerblue; */
     margin: 0 auto;
     max-width: 600px;
-    height: 80vh;
+    height: 100%;
     padding: 24px;
     color: #333;
+    box-sizing: border-box;
 }
 
 #textareaData {
@@ -20,4 +23,24 @@ body {
     line-height: 1.6;
     padding: 24px;
     border: none;
+}
+
+.btnContainer {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+}
+
+.btnContainer button {
+    padding: 16px 24px;
+    background: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.btnContainer button:hover {
+    box-shadow: none;
 }
