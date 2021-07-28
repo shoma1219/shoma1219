@@ -9,6 +9,10 @@ window.addEventListener('keyup', () => {
     localStorage.setItem('data', textareaData.value);
 });
 
+window.addEventListener('touchend', () => {
+    localStorage.setItem('data', textareaData.value);
+});
+
 // コピーと削除ボタン
 const copyBtn = document.getElementById('copyBtn');
 const deleteBtn = document.getElementById('deleteBtn');
