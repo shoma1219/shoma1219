@@ -29,8 +29,8 @@ const render = Render.create({
 });
 
 // create two boxes and a ground
-const boxA = Bodies.rectangle(width / 2, 200, 80, 80);
-const circleA = Bodies.circle(width / 2, 430, 40);
+const boxA = Bodies.rectangle(width / 2, 200, 140, 140);
+const circleA = Bodies.circle(width / 2, 300, 40);
 const circleB = Bodies.circle(width / 2, 430, 40);
 // const polygonA = Bodies.polygon(width / 2, 430, 5, 40);
 
@@ -38,13 +38,15 @@ const wallA = Bodies.rectangle(0, height / 2, 20, height, { isStatic: true });
 const wallB = Bodies.rectangle(width, height / 2, 20, height, { isStatic: true });
 const ceiling = Bodies.rectangle(width / 2, 0, width, 20, { isStatic: true });
 const ground = Bodies.rectangle(width / 2, height, width, 20, { isStatic: true });
+const center = Bodies.rectangle(width / 2, height / 2, width - 30, 20, { isStatic: true });
 
 // 束縛を作る
 const anchorA = Constraint.create({
     pointA: { x: 0, y: 0 }, // 円盤の中心
-    bodyA: boxA,
-    pointB: { x: 200, y: 200 }, // 空間のこの位置に固定
-    length: 0,
+    bodyA: circleB,
+    pointB: { x: 0, y: 0 }, // 空間のこの位置に固定
+    bodyB: boxA,
+    length: 160,
 });
 
 const anchorB = Constraint.create({
@@ -56,7 +58,9 @@ const anchorB = Constraint.create({
 });
 
 // 速度を追加して回転させる
-Body.setAngularVelocity(boxA, 0.1);
+window.addEventListener('click', () => {
+    Body.setAngularVelocity(circleA, 0.2);
+});
 
 // マウスドラッグに対応
 const mousedrag = MouseConstraint.create(engine, {
@@ -64,7 +68,7 @@ const mousedrag = MouseConstraint.create(engine, {
 });
 
 // add all of the bodies to the world
-Composite.add(engine.world, [boxA, circleA, circleB, anchorA, anchorB, wallA, wallB, ceiling, ground, mousedrag]);
+Composite.add(engine.world, [boxA, circleA, circleB, anchorA, anchorB, wallA, wallB, ceiling, ground, center, mousedrag]);
 
 Matter.Events.on(engine, "collisionStart", (event) => {
     if (boxA) {
