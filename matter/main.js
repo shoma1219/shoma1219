@@ -31,26 +31,17 @@ const render = Render.create({
 // wall
 Composite.add(engine.world, [
     // walls
-    Bodies.rectangle(0, height / 2, 20, height, { isStatic: true }),
-    Bodies.rectangle(width, height / 2, 20, height, { isStatic: true }),
-    Bodies.rectangle(width / 2, 0, width, 20, { isStatic: true }),
-    Bodies.rectangle(width / 2, height, width, 20, { isStatic: true }),
+    Bodies.rectangle(-30, height / 2, 60, height, { isStatic: true }),
+    Bodies.rectangle(width + 30, height / 2, 60, height, { isStatic: true }),
+    Bodies.rectangle(width / 2, -30, width, 60, { isStatic: true }),
+    Bodies.rectangle(width / 2, height + 30, width, 60, { isStatic: true }),
 ]);
-
-// 重力を扱う
-window.addEventListener('keydown', () => {
-    engine.gravity.y = 0;
-});
-window.addEventListener('keyup', () => {
-    engine.gravity.y = 1;
-});
 
 // create two boxes and a ground
 const boxA = Bodies.rectangle(width / 2, 200, 140, 140);
 const circleA = Bodies.circle(width / 2, 300, 40);
 const circleB = Bodies.circle(width / 2, 430, 40);
 const center = Bodies.rectangle(width / 2, height / 2, width / 3, 20, { isStatic: true });
-// const polygonA = Bodies.polygon(width / 2, 430, 5, 40);
 
 // 束縛を作る
 const anchorA = Constraint.create({
@@ -75,14 +66,15 @@ window.addEventListener('click', () => {
 });
 
 // 大砲を作る
-var rock = Bodies.polygon(170, 450, 8, 20, { density: 0.004 }),
-    anchor = { x: 170, y: 450 },
+let rock = Bodies.polygon(170, 450, 8, 20, { density: 0.004 });
+const anchor = { x: 170, y: 450 },
     elastic = Constraint.create({
         pointA: anchor,
         bodyB: rock,
         stiffness: 0.05
     });
 Composite.add(engine.world, [rock, elastic]);
+
 Events.on(engine, 'afterUpdate', function () {
     if ((rock.position.x > 190 || rock.position.y < 430)) {
         rock = Bodies.polygon(170, 450, 7, 20, { density: 0.004 });
@@ -91,9 +83,23 @@ Events.on(engine, 'afterUpdate', function () {
     }
 });
 
+// ピラミッド
+// const pyramid = Composites.pyramid(500, 300, 9, 10, 0, 0, function (x, y) {
+//     return Bodies.rectangle(x, y, 25, 40);
+// });
+// Composite.add(engine.world, [pyramid]);
+
 // マウスドラッグに対応
 const mousedrag = MouseConstraint.create(engine, {
     element: document.body,
+});
+
+// 重力を扱う
+window.addEventListener('keydown', () => {
+    engine.gravity.y = 0;
+});
+window.addEventListener('keyup', () => {
+    engine.gravity.y = 1;
 });
 
 // add all of the bodies to the world
