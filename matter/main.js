@@ -21,10 +21,10 @@ const render = Render.create({
     options: {
         width: width,
         height: height,
+        pixelRatio: 2,
         showCollisions: true,
         showPositions: true,
         showVelocity: true
-
     }
 });
 
