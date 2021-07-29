@@ -1,40 +1,3 @@
-// スマホの傾き
-var deviceOrientation = window.orientation; //デバイスの傾きを取得
-
-//デバイスが動くたびに実行 : devicemotion
-window.addEventListener("devicemotion", function devicemotionHandler(event) {
-
-
-    //重力加速度 (物体の重力を調節)
-    var xg = event.accelerationIncludingGravity.x / 10;
-    var yg = event.accelerationIncludingGravity.y / 10;
-
-    // 傾きに応じて重力を調節
-    switch (deviceOrientation) {
-        case 0:
-            engine.world.gravity.x = xg + event.acceleration.x;
-            engine.world.gravity.y = -yg + event.acceleration.y;
-            break;
-        case 90:
-            engine.world.gravity.x = -yg - event.acceleration.x;
-            engine.world.gravity.y = -xg + event.acceleration.x;
-            break;
-        case -90:
-            engine.world.gravity.x = yg + event.acceleration.x;
-            engine.world.gravity.y = xg - event.acceleration.x;
-            break;
-        case 180:
-            engine.world.gravity.x = -xg - event.acceleration.x;
-            engine.world.gravity.y = yg - event.acceleration.x;
-    }
-
-    // androidとiOSは加速度が真逆なのでその対応
-    if (window.navigator.userAgent.indexOf('Android') > 0) {
-        engine.world.gravity.x = - engine.world.gravity.x;
-        engine.world.gravity.y = - engine.world.gravity.y;
-    }
-});
-
 // module aliases
 const Engine = Matter.Engine,
     Render = Matter.Render,
@@ -113,6 +76,43 @@ Matter.Events.on(engine, "collisionStart", (event) => {
     }
     if (circleA) {
         console.log('circleA');
+    }
+});
+
+// スマホの傾き
+var deviceOrientation = window.orientation; //デバイスの傾きを取得
+
+//デバイスが動くたびに実行 : devicemotion
+window.addEventListener("devicemotion", function devicemotionHandler(event) {
+
+
+    //重力加速度 (物体の重力を調節)
+    var xg = event.accelerationIncludingGravity.x / 10;
+    var yg = event.accelerationIncludingGravity.y / 10;
+
+    // 傾きに応じて重力を調節
+    switch (deviceOrientation) {
+        case 0:
+            engine.world.gravity.x = xg + event.acceleration.x;
+            engine.world.gravity.y = -yg + event.acceleration.y;
+            break;
+        case 90:
+            engine.world.gravity.x = -yg - event.acceleration.x;
+            engine.world.gravity.y = -xg + event.acceleration.x;
+            break;
+        case -90:
+            engine.world.gravity.x = yg + event.acceleration.x;
+            engine.world.gravity.y = xg - event.acceleration.x;
+            break;
+        case 180:
+            engine.world.gravity.x = -xg - event.acceleration.x;
+            engine.world.gravity.y = yg - event.acceleration.x;
+    }
+
+    // androidとiOSは加速度が真逆なのでその対応
+    if (window.navigator.userAgent.indexOf('Android') > 0) {
+        engine.world.gravity.x = - engine.world.gravity.x;
+        engine.world.gravity.y = - engine.world.gravity.y;
     }
 });
 
