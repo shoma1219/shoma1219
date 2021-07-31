@@ -8,9 +8,10 @@ const box3 = document.querySelector('.scrollAnimationContainer__box3');
 const box4 = document.querySelector('.scrollAnimationContainer__box4');
 
 const contentContainer = document.querySelector('.contentContainer');
-let height = contentContainer.clientHeight;
+let height;
 
 function scrollAnimation(scroll_top) {
+    height = contentContainer.clientHeight;
 
     if (scroll_top <= height) {
 
