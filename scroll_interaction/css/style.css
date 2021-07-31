@@ -1,7 +1,4 @@
-html {
-    height: 100%;
-}
-
+html,
 body {
     height: 100%;
 }
@@ -11,26 +8,18 @@ h1 {
     margin: 0;
 }
 
-.container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100%;
-}
-
-.section {
-    scroll-snap-align: center;
-    height: 100%;
-}
-
-.background {
+/* scroll animation container */
+.scrollAnimationContainer {
     width: 100%;
     height: 100%;
     background: rgb(100, 100, 100);
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
-.center_box {
+.scrollAnimationContainer__centerBox {
     width: 100px;
     height: 100px;
     background: rgb(255, 255, 255);
@@ -38,46 +27,57 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
 }
 
-.box1,
-.box2,
-.box3,
-.box4 {
+.scrollAnimationContainer__box1,
+.scrollAnimationContainer__box2,
+.scrollAnimationContainer__box3,
+.scrollAnimationContainer__box4 {
     width: 100px;
     height: 100px;
     background: black;
     position: fixed;
     left: 0;
-    z-index: -1;
 }
 
-.box1 {
+.scrollAnimationContainer__box1 {
     top: 100px;
     left: 0;
 }
 
-.box2 {
+.scrollAnimationContainer__box2 {
+    top: 200px;
+    left: -100px;
+}
+
+.scrollAnimationContainer__box3 {
     top: 300px;
     left: -100px;
 }
 
-.box3 {
-    top: 500px;
+.scrollAnimationContainer__box4 {
+    top: 400px;
     left: -100px;
 }
 
-.box4 {
-    top: 600px;
-    left: -100px;
+/* content container */
+.contentContainer {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
 }
 
-.heading {
+.contentContainer__section {
+    scroll-snap-align: start;
+    height: 100%;
+}
+
+.contentContainer__heading {
     padding-top: 132px;
     text-align: center;
 }
 
-.text {
+.contentContainer__text {
     text-align: center;
 }
