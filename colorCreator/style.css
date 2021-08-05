@@ -1,0 +1,11 @@
+
+.colorPickerContainer {
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.colorPicker {
+    width: 100%;
+    height: 100px;
+}
