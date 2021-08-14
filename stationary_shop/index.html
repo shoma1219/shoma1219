@@ -12,21 +12,14 @@
 <body>
     <div id="app">
         <h1>Stationary Shop</h1>
-        <ul>
-            <li v-for="item in items" v-bind:key="item.name">{{ item.name }}の個数: <input type="number"
-                    v-model="item.quantity" min="0">
-            </li>
-        </ul>
-        <hr>
         <div>
             <ul>
-                <li v-for="item in items" v-bind:key="item.name">{{ item.name }}: {{ item.price }} × {{ item.quantity }}
+                <li v-for="item in items" v-bind:key="item.name">{{ item.name }}: {{ item.price }} × <input
+                        type="number" v-model="item.quantity" min="0">
                     = {{ item.price * item.quantity | numberWithDelimiter }}円</li>
             </ul>
-            <!-- <p v-for="iroha in arr" v-bind:key="iroha">{{ iroha }}</p> -->
-            <!-- <p>{{ items[0].name }}: {{ items[0].price }} × {{ items[0].quantity }}</p> -->
             <p>小計: {{ totalPrice | numberWithDelimiter }}</p>
-            <p>合計: {{ totalPriceWithTax | numberWithDelimiter }}円</p>
+            <p :style="{color: 'blue'}">税込: {{ totalPriceWithTax | numberWithDelimiter }}円</p>
             <p v-show="!canBuy" :style="errorMessageStyle">{{ 1000 | numberWithDelimiter
                 }}円以上からご購入いただけます</p>
             <button v-bind:disabled="!canBuy" @click="doBuy">購入</button>
