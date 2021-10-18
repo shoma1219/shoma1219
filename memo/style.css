@@ -58,7 +58,8 @@ body {
 }
 
 #saveBtn {
-    background: lightgreen;
+    color: #fff;
+    background: rgb(57, 122, 220);
 }
 
 @media (prefers-color-scheme: dark) {
