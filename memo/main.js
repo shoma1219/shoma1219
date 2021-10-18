@@ -17,7 +17,7 @@ window.addEventListener('keyup', () => {
 // コピーと削除ボタン
 const copyBtn = document.getElementById('copyBtn');
 const deleteBtn = document.getElementById('deleteBtn');
-const saveBtn = document.getElementById('saveBtn');
+// const saveBtn = document.getElementById('saveBtn');
 
 copyBtn.addEventListener('click', () => {
     textareaData.select();
@@ -30,6 +30,6 @@ deleteBtn.addEventListener('click', () => {
     textareaData.focus();
 });
 
-saveBtn.addEventListener('click', () => {
-    localStorage.setItem('data', textareaData.value);
-});
+// saveBtn.addEventListener('click', () => {
+//     localStorage.setItem('data', textareaData.value);
+// });
